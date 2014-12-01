@@ -173,6 +173,10 @@ input[type="radio"] {
     display : block;
 }
 
+.current{
+  background-color: blue;
+}
+
 footer {
   color:white;
   margin-left: auto;
