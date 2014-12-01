@@ -22,7 +22,7 @@ $(document).ready(function() {
 });
 
 function checkFirstName(FirstID){
-	$(FirstID).on('keyup', function(){
+	$(FirstID).on('change', function(){
 		var FirstNameSelector = $(this);
 		var errorSelector = FirstNameSelector.siblings('.error');
 
@@ -36,7 +36,7 @@ function checkFirstName(FirstID){
 }
 
 function checkLastName(LastID){
-	$(LastID).on('keyup', function(){
+	$(LastID).on('change', function(){
 		var LastNameSelector = $(this);
 		var errorSelector = LastNameSelector.siblings('.error');
 
