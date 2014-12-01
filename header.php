@@ -25,22 +25,30 @@
                             }
                         ?>
                         >Register</a></li>
-                    <li><a href=""
+                    <li><a href="review.php"
                         <?php
-                            // if ($fName == "projects.php"){
-                            //     echo "class = \"current\"";
-                            // }
+                            if ($fName == "review.php"){
+                                echo "class = \"current\"";
+                            }
                         ?>
                         >Review</a>
                     </li>   
                     <li><a href=""
                         <?php
-                            // if ($fName == "projects.php"){
+                            // if ($fName == "upload.php"){
+                            //     echo "class = \"current\"";
+                            // }
+                        ?>
+                        >Gallery</a>
+                    </li> 
+                    <li><a href=""
+                        <?php
+                            // if ($fName == "upload.php"){
                             //     echo "class = \"current\"";
                             // }
                         ?>
                         >Contact Us</a>
-                    </li>  
+                    </li 
                 </ul>
             </div>
         </nav>
