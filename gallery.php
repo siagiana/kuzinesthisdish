@@ -21,7 +21,7 @@
       <?php
         function createGallery( $pathToImages, $pathToThumbs ) 
         {
-          // include("head.html");
+          include("head.html");
           $fName = basename("gallery.php");
           include("header.php");
 
