@@ -33,11 +33,11 @@
                         ?>
                         >Review</a>
                     </li>   
-                    <li><a href=""
+                    <li><a href="gallery.php"
                         <?php
-                            // if ($fName == "upload.php"){
-                            //     echo "class = \"current\"";
-                            // }
+                            if ($fName == "gallery.php"){
+                                echo "class = \"current\"";
+                            }
                         ?>
                         >Gallery</a>
                     </li> 
