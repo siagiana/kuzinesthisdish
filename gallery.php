@@ -19,11 +19,20 @@
   </head>
   <body>
       <?php
+
+        $fName = basename("gallery.php");
+        include("header.php");
+
+
         function createGallery( $pathToImages, $pathToThumbs ) 
         {
           include("head.html");
+<<<<<<< HEAD
+
+=======
           $fName = basename("gallery.php");
           include("header.php");
+>>>>>>> e98922f129b995c1cc609b34db142ebdb5765c55
 
           
           // open the directory
@@ -32,13 +41,13 @@
           $counter = 0;
           // loop through the directory
           $output ="<div class = \"row\">";
-          while (false !== ($fname = readdir($dir)))
+          while (false !== ($fname1 = readdir($dir)))
           {
             // strip the . and .. entries out
-            if ($fname != '.' && $fname != '..' && $fname != '.DS_Store') 
+            if ($fname1 != '.' && $fname1 != '..' && $fname1 != '.DS_Store') 
             {
-              $output .= "<a href=\"{$pathToImages}{$fname}\" class = \"col-xs-6 col-md-4 col-lg-3\">";
-              $output .= "<img src=\"{$pathToThumbs}{$fname}\" class = \"thumbnail\" />";
+              $output .= "<a href=\"{$pathToImages}{$fname1}\" class = \"col-xs-6 col-md-4 col-lg-3\">";
+              $output .= "<img src=\"{$pathToThumbs}{$fname1}\" class = \"thumbnail\" />";
               $output .= "</a>";
             }
           }
@@ -53,7 +62,7 @@
           // close the file
           //fclose( $fhandle );
           echo $output;
-          include("footer.php");
+          // include("footer.php");
 
         }
         // call createGallery function and pass to it as parameters the path 
@@ -64,4 +73,10 @@
         createGallery("uploads/","uploads/");
       ?>
   </body>
+
+  <footer>
+    <?php
+      include("footer.php");
+    ?>
+  </footer>
 </html>
