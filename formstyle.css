@@ -1,0 +1,130 @@
+body {
+  background-color: #474747;
+}
+
+#content{
+  margin:auto;
+  color:black;
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  font-family: Helvetica, Helvetica, Arial;
+  font-size: 1em;
+}
+#content .formtitle {
+  background-color: #f94d3d;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
+  margin: 1% 9% 0% 9%;
+  padding: 15px 20px;
+}
+
+#content h1 {
+  color: #fff;
+  font-size: 4em;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#content fieldset {
+  background-color: #FFFFFF;
+  -webkit-border-radius: 0 0 20px 20px;
+  -moz-border-radius: 0 0  20px 20px;
+  border-radius: 0 0 20px 20px;
+  padding: 20px 26px;
+  margin: 0 9% 1% 9%;
+}
+
+.error{
+  color:#ee0000;
+}
+h2  {
+  font-size: 2em;
+  font-weight: bold;
+}
+h3  {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+form{
+margin: auto;
+}
+
+input,select{
+    border: 1px solid black; 
+    margin: 0 0 4px 0;
+    display: block;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #eee;
+    color: black;
+    padding: 4px 10px;
+}
+
+.input:focus{
+  outline: none !important;
+  border: 1px solid yellow;
+}
+.rebel  {
+  display: inline-block;
+}
+.gone
+{
+    display : none;
+}
+.date{
+    display : inline;
+}
+.back
+{
+    display : block;
+}
+
+#content fieldset input[type="submit"] {
+  background-color: #33cc77;
+  color: #fff;
+  display: block;
+  margin-left: 102%;
+  padding: 0.5em 0;
+  width: 8em;
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+#content fieldset input[type="submit"]:hover {
+  background-color: #28ad63;
+  text-decoration: underline;
+}
+footer {
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
+@media only screen and (max-width:768px){
+  #content fieldset input[type="submit"] {
+      margin-left: 77%;
+    }
+  #content .formtitle {
+    margin: 1% 10% 0% 10%;
+    }
+  #content fieldset {
+    margin: 0% 10% 1% 10%;
+    }
+  }
+
+@media only screen and (max-width:500px){
+  #content fieldset input[type="submit"] {
+      margin: auto;
+    }
+  #content .formtitle {
+    margin: 1% 8% 0% 8%;
+    }
+  #content fieldset {
+    margin: 0% 8% 1% 8%;
+    }
+  }
