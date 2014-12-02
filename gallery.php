@@ -1,82 +1,88 @@
 <!--*From http://webcheatsheetcom/php/create_thumbnail_images.php() -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Kuzines Edit Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <html lang="en">
+    <head>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <meta charset="UTF-8"> 
+      <title>Gallery</title>
+
+  <?php
+      $currentFile = $_SERVER["PHP_SELF"];
+      $parts = Explode('/', $currentFile);
+      $parts = $parts[count($parts) - 1];
+      $parts = Explode('.', $parts);
+      $pageName = $parts[0];
+
+      $pageName= basename($_SERVER['REQUEST_URI'], '.php');
+      echo "<title>", $pageName, "</title>\n";
+      ?>
+
+  <!--Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>  
-    <!-- <link type="text/css" rel="stylesheet" href="css/formstyle2.css"> -->
-    <link type="text/css" rel="stylesheet" href="css/formstyle.css">
 
+    <link type="text/css" rel="stylesheet" href="gallerystyle.css"/>
+    <link type="text/css" rel="stylesheet" href="css/formstyle.css"/>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+
+<!-- niro's code -->
     <script type="text/javascript" src = "js/form.js"></script>
     <script type="text/javascript" src = "js/clock.js"></script>
     <script type="text/javascript" src = "js/birthdate.js"></script>
     <script type="text/javascript" src = "js/onchange.js"></script> 
+
   </head>
   <body>
-      <?php
+    <?php
 
-        $fName = basename("gallery.php");
+      //sample code
+      function createGallery( $pathToImages, $pathToThumbs ) 
+      {
+        $fName = basename("gallery.php"); //niro's code
+
+        // include("head.html");
         include("header.php");
+        
+        // open the directory
+        $dir = opendir( $pathToThumbs );
 
-
-        function createGallery( $pathToImages, $pathToThumbs ) 
+        $counter = 0;
+        // loop through the directory
+        $output ="<div class = \"row\">";
+        while (false !== ($fname = readdir($dir)))
         {
-          include("head.html");
-<<<<<<< HEAD
-
-=======
-          $fName = basename("gallery.php");
-          include("header.php");
->>>>>>> e98922f129b995c1cc609b34db142ebdb5765c55
-
-          
-          // open the directory
-          $dir = opendir( $pathToThumbs );
-
-          $counter = 0;
-          // loop through the directory
-          $output ="<div class = \"row\">";
-          while (false !== ($fname1 = readdir($dir)))
+          // strip the . and .. entries out
+          if ($fname != '.' && $fname != '..' && $fname != '.DS_Store') 
           {
-            // strip the . and .. entries out
-            if ($fname1 != '.' && $fname1 != '..' && $fname1 != '.DS_Store') 
-            {
-              $output .= "<a href=\"{$pathToImages}{$fname1}\" class = \"col-xs-6 col-md-4 col-lg-3\">";
-              $output .= "<img src=\"{$pathToThumbs}{$fname1}\" class = \"thumbnail\" />";
-              $output .= "</a>";
-            }
+            $output .= "<a href=\"{$pathToImages}{$fname}\" class = \"col-xs-6 col-md-4 col-lg-3\">";
+            $output .= "<img src=\"{$pathToThumbs}{$fname}\" class = \"thumbnail\" />";
+            $output .= "</a>";
           }
-          // close the directory
-
-          closedir( $dir );
-
-          // open the file
-          //$fhandle = fopen( "gallery.html", "w" );
-          // write the contents of the $output variable to the file
-          //fwrite( $fhandle, $output ); 
-          // close the file
-          //fclose( $fhandle );
-          echo $output;
-          // include("footer.php");
-
         }
-        // call createGallery function and pass to it as parameters the path 
-        // to the directory that contains images and the path to the directory
-        // in which thumbnails will be placed. We are assuming that 
-        // the path will be a relative path working 
-        // both in the filesystem, and through the web for links
-        createGallery("uploads/","uploads/");
-      ?>
-  </body>
+        // close the directory
 
-  <footer>
+        closedir( $dir );
+
+        // open the file
+        //$fhandle = fopen( "gallery.html", "w" );
+        // write the contents of the $output variable to the file
+        //fwrite( $fhandle, $output ); 
+        // close the file
+        //fclose( $fhandle );
+        echo $output;
+        // include("footer.html");
+      }
+      // call createGallery function and pass to it as parameters the path 
+      // to the directory that contains images and the path to the directory
+      // in which thumbnails will be placed. We are assuming that 
+      // the path will be a relative path working 
+      // both in the filesystem, and through the web for links
+      createGallery("uploads/","uploads/");
+    ?>
     <?php
       include("footer.php");
     ?>
-  </footer>
-</html>
+  </body>
