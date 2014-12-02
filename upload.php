@@ -47,6 +47,41 @@ if ($uploadOk == 0) {
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename);
         
     echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-
 }
+
+
+//now make csv file
+    $filename = "review.csv";
+    $exists = (file_exists($filename));
+
+    $handle = fopen($filename, 'a'); // 'a' means write only
+    // $msg = "Thank you for signing up.\n";//EMail message
+    $stringToAdd="";    //File into
+
+    if (!$exists){
+        foreach($_POST as $name => $value) {
+            $stringToAdd.="$name,";
+        }
+        $stringToAdd.="\n";
+        $new=False;
+        fwrite($handle, $stringToAdd);
+    }
+    $stringToAdd="";
+    //add subject and contents
+    foreach($_POST as $name => $value) { 
+        // print "$name : $value<br>";
+        // $msg .="$name : $value\n";
+        $stringToAdd.="$value,";
+    }
+    $stringToAdd.=$newfilename; //add filename in the last column
+    $stringToAdd.="\n";
+
+    fwrite($handle, $stringToAdd);
+    //now close the file
+    fclose($handle); 
+
+
+
+
+
 ?>
