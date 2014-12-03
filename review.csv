@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 title,contents,submit,
 a,a,Upload Image,1417494678.gif
 a,a,Upload Image,1417509977.gif
 a,a,Upload Image,1417510044.gif
+=======
+title,contents,submit,image_url
+Zingerman is awesome,Zing Zing Zing all the way,Upload Image,1417595362.jpg
+Zingerman is cool,Delicious food,Upload Image,1417596783.jpg
+>>>>>>> FETCH_HEAD
