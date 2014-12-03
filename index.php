@@ -29,19 +29,6 @@
 		</div>
 		<br>
 		<div class="article-body col-xs-10 col-xs-offset-1">
-<!-- 			<?php
-			$row = 0;
-			$handle = fopen("review.csv", "r");
-			
-			while (!feof($handle)) {
-				while (($data = fgetcsv($handle, 500, ",")) !== FALSE)	{
-					if ($row > 0) {
-						echo "<div>" . $data[0] . "</div>" . "<div>" . $data[1] . "</div><br>";
-					}
-					$row++;
-				}
-			}
-			?>	 -->
 			<?php
 			$row = 0;
 			$handle = fopen("review.csv", "r");
