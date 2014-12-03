@@ -1,0 +1,17 @@
+.timelinecontainer	{
+	border-top: solid 2px white;
+}
+.reviewtitles	{
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.reviewcontents	{
+	font-size: 1em;
+}
+
+.timelinephotos	{
+	width: 30%;
+	height: 30%;
+	margin-bottom: 2em;
+}

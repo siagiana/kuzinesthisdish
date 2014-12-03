@@ -10,7 +10,7 @@
 	    <script src="js/bootstrap.min.js"></script>  
 	  	<!-- <link type="text/css" rel="stylesheet" href="css/formstyle2.css"> -->
 	  	<link type="text/css" rel="stylesheet" href="css/formstyle.css">
-
+	  	<link type="text/css" rel="stylesheet" href="css/style.css">
 	  	<script type="text/javascript" src = "js/form.js"></script>
 	  	<script type="text/javascript" src = "js/clock.js"></script>
 	  	<script type="text/javascript" src = "js/birthdate.js"></script>
@@ -52,9 +52,11 @@
 
 				foreach($output as $data)	{
 				?>
-					<div><?= htmlspecialchars($data['title'])?></div>
-					<div><img src="uploads/<?= $data['image_url']?>"></div>
-					<div><?= htmlspecialchars($data['contents'])?></div>
+				<div class="timelinecontainer">
+						<div class="reviewtitles"><?= htmlspecialchars($data['title'])?></div>
+						<div class="reviewcontents"><?= htmlspecialchars($data['contents'])?></div>
+						<div><img class="img-responsive timelinephotos" src="uploads/<?= $data['image_url']?>"></div>
+				</div>
 				<?php
 				}
 			}
