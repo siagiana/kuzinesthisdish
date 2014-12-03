@@ -30,32 +30,36 @@
 		<br>
 		<div class="article-body col-xs-10 col-xs-offset-1">
 			<?php
-			$row = 0;
-			$handle = fopen("review.csv", "r");
-			$headers = array();
-			$output = array();
-			
-			while (!feof($handle)) {
-				while (($data = fgetcsv($handle, 500, ",")) !== FALSE)	{
-					if ($row == 0) {
-						$headers = $data;
-						$headers[3] = "image_url";
+			if(file_exists("review.csv")) {
+				$row = 0;
+				$handle = fopen("review.csv", "r");
+				$headers = array();
+				$output = array();
+				while (!feof($handle)) {
+					while (($data = fgetcsv($handle, 500, ",")) !== FALSE)	{
+						if ($row == 0) {
+							$headers = $data;
+							$headers[3] = "image_url";
+						}
+						else {
+							$output[] = array_combine($headers, $data);
+						}
+						$row++;
 					}
-					else {
-						$output[] = array_combine($headers, $data);
-					}
-					$row++;
+				}
+
+				$output = array_reverse($output);
+
+				foreach($output as $data)	{
+				?>
+					<div><?= htmlspecialchars($data['title'])?></div>
+					<div><img src="uploads/<?= $data['image_url']?>"></div>
+					<div><?= htmlspecialchars($data['contents'])?></div>
+				<?php
 				}
 			}
-
-			$output = array_reverse($output);
-
-			foreach($output as $data)	{
-			?>
-				<div><?= htmlspecialchars($data['title'])?></div>
-				<div><img src="image/<?= $data['image_url']?>"></div>
-				<div><?= htmlspecialchars($data['contents'])?></div>
-			<?php
+			else {
+				echo "There is currently no review available";
 			}
 			?>
 		</div>	
