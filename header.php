@@ -2,11 +2,11 @@
         <nav>
             <div class="container">
                 <ul class="nav nav-tabs">
-                    <li><a href=""
+                    <li><a href="index.php"
                         <?php
-                            // if ($fName == "form.php"){
-                            //     echo "class = \"current\"";
-                            // }
+                            if ($fName == "index.php"){
+                                echo "class = \"current\"";
+                            }
                         ?>
                         >Home</a>
                     </li>
